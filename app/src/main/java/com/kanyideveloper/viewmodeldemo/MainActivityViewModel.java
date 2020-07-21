@@ -2,6 +2,7 @@ package com.kanyideveloper.viewmodeldemo;
 
 import android.util.Log;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.Random;
@@ -10,13 +11,14 @@ public class MainActivityViewModel extends ViewModel {
 
     private static final String TAG = "MainActivityViewModel";
 
-    private String randomNumber = null;
+    private MutableLiveData<String> randomNumber = null;
 
 
-    public String getRandomNumber(){
+    public MutableLiveData<String> getRandomNumber(){
         Log.i(TAG, "getRandomNumber: invoked");
 
         if(randomNumber ==null){
+            randomNumber = new MutableLiveData<>();
             createNumber();
         }
 
@@ -29,7 +31,7 @@ public class MainActivityViewModel extends ViewModel {
         Random random = new Random();
 
         Log.i(TAG, "createNumber: invoked");
-        randomNumber = "Number: "+ (random.nextInt(10-1)-1);
+        randomNumber.setValue("Number: "+ (random.nextInt(10-1)-1));
     }
 
     @Override

@@ -15,14 +15,14 @@ public class MainActivityViewModel extends ViewModel {
 
 
     public MutableLiveData<String> getRandomNumber(){
-        Log.i(TAG, "getRandomNumber: invoked");
+        Log.i(TAG, "getRandomNumber: returned a random number");
 
         if(randomNumber ==null){
             randomNumber = new MutableLiveData<>();
             createNumber();
         }
 
-        Log.d(TAG, "getRandomNumber: "+randomNumber);
+        //Log.d(TAG, "getRandomNumber: "+randomNumber);
         return randomNumber;
     }
 
@@ -30,7 +30,7 @@ public class MainActivityViewModel extends ViewModel {
     public void createNumber(){
         Random random = new Random();
 
-        Log.i(TAG, "createNumber: invoked");
+        Log.i(TAG, "createNumber: a new number was created");
         randomNumber.setValue("Number: "+ (random.nextInt(10-1)-1));
     }
 

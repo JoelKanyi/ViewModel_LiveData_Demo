@@ -2,7 +2,6 @@ package com.kanyideveloper.viewmodeldemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         //MainActivityNumberGenerator mainActivityNumberGenerator = new MainActivityNumberGenerator();
 
-        MainActivityNumberGenerator myNum = new ViewModelProvider(this).get(MainActivityNumberGenerator.class);
+        MainActivityViewModel myNum = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
         String myRandomNum = myNum.getRandomNumber();
         tvNum.setText(myRandomNum);
 
-        Log.d(TAG, "onCreate: Random number generated");
+        Log.d(TAG, "onCreate: Random number set");
     }
 }

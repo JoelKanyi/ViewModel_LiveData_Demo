@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.Random;
 
-public class MainActivityNumberGenerator extends ViewModel {
+public class MainActivityViewModel extends ViewModel {
 
-    private static final String TAG = "MainActivityNumberGener";
+    private static final String TAG = "MainActivityViewModel";
 
     private String randomNumber = null;
 
@@ -35,6 +35,6 @@ public class MainActivityNumberGenerator extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.d(TAG, "onCleared: Viewmodel is cleared");
+        Log.d(TAG, "onCleared: ViewModel is destroyed");
     }
 }

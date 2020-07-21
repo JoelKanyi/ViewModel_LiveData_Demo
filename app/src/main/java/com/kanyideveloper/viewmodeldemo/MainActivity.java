@@ -1,6 +1,8 @@
 package com.kanyideveloper.viewmodeldemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         TextView tvNum = findViewById(R.id.tv_num);
 
-        MainActivityNumberGenerator mainActivityNumberGenerator = new MainActivityNumberGenerator();
+        //MainActivityNumberGenerator mainActivityNumberGenerator = new MainActivityNumberGenerator();
 
-        String myRandomNum = mainActivityNumberGenerator.getRandomNumber();
+        MainActivityNumberGenerator myNum = new ViewModelProvider(this).get(MainActivityNumberGenerator.class);
+
+        String myRandomNum = myNum.getRandomNumber();
         tvNum.setText(myRandomNum);
 
         Log.d(TAG, "onCreate: Random number generated");

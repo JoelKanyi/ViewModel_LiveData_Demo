@@ -2,9 +2,11 @@ package com.kanyideveloper.viewmodeldemo;
 
 import android.util.Log;
 
+import androidx.lifecycle.ViewModel;
+
 import java.util.Random;
 
-public class MainActivityNumberGenerator {
+public class MainActivityNumberGenerator extends ViewModel {
 
     private static final String TAG = "MainActivityNumberGener";
 
@@ -28,5 +30,11 @@ public class MainActivityNumberGenerator {
 
         Log.i(TAG, "createNumber: invoked");
         randomNumber = "Number: "+ (random.nextInt(10-1)-1);
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        Log.d(TAG, "onCleared: Viewmodel is cleared");
     }
 }
